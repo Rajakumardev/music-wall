@@ -5,11 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await getPlayingNow("asdfasdf");
-  //const { item = {} } = response;
-  //const { name = "" } = item;
+  const response = await getPlayingNow();
   res.status(200).json({
-    //songName: name,
     response
   });
 }
