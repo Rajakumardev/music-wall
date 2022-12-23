@@ -1,1 +1,2 @@
-export const SPOTIFY_CLIENT_ID_KEY:string = 'SPOTIFY_CLIENT_ID';
+export const SPOTIFY_CLIENT_ID_KEY: string = "SPOTIFY_CLIENT_ID";
+export const SPOTIFY_REFRESH_TOKEN_KEY: string = "SPOTIFY_REFRESH_TOKEN";
