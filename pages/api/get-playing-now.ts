@@ -7,10 +7,10 @@ export default async function handler(
 ) {
   const response = await getPlayingNow();
   console.log("response:", response);
-  if (!response || response === '') {
+  if (!response || response === "") {
     //player is offline
     res.status(200).json({
-      player: "offline",
+      player: "Not listening.",
     });
     return;
   }
@@ -19,21 +19,27 @@ export default async function handler(
   const { is_playing = false } = response;
   if (!is_playing) {
     res.status(200).json({
-      player: "unplayable",
+      player: "Paused.",
       is_playing,
     });
     return;
   }
 
   const { item = {} } = response;
-  const { album = {}, artists = {}, name = "" } = item;
+  const {
+    album = {},
+    artists = {},
+    name = "",
+    external_urls: trackExternalUrls = {},
+  } = item;
+  const { spotify: trackUrl = "" } = trackExternalUrls;
   const { name: albumName = "" } = album;
-  console.log(artists, "artists");
   res.status(200).json({
     player: "online",
     is_playing,
     name,
     albumName,
     artists,
+    trackUrl,
   });
 }
