@@ -10,7 +10,7 @@ export default async function handler(
   if (!response || response === '') {
     //player is offline
     res.status(200).json({
-      player: "offline",
+      player: "Not listening.",
     });
     return;
   }
@@ -19,7 +19,7 @@ export default async function handler(
   const { is_playing = false } = response;
   if (!is_playing) {
     res.status(200).json({
-      player: "unplayable",
+      player: "Paused.",
       is_playing,
     });
     return;
