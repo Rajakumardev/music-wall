@@ -28,7 +28,6 @@ export default async function handler(
   const { item = {} } = response;
   const { album = {}, artists = {}, name = "" } = item;
   const { name: albumName = "" } = album;
-  console.log(artists, "artists");
   res.status(200).json({
     player: "online",
     is_playing,
