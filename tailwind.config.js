@@ -14,6 +14,9 @@ module.exports = {
           900: "#47FFDD",
         },
       },
+      transitionProperty :{
+        'width': 'width',
+      }
     },
   },
   plugins: [],
