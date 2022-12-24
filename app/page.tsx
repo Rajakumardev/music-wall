@@ -24,7 +24,7 @@ const Home = async () => {
             className="w-5 h-5 animate-pulse fill-primary-900"
           />
         </div>
-        <div className={`text-primary-900 font-semibold`}>
+        <div className={`text-primary-900 font-semibold truncate`}>
           {currentlyPlayingText}
         </div>
       </Link>
