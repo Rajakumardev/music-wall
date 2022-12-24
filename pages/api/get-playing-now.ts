@@ -6,7 +6,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const response = await getPlayingNow();
-  console.log("response:", response);
   if (!response || response === "") {
     //player is offline
     res.status(200).json({
