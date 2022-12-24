@@ -26,6 +26,15 @@ export default async function handler(
   }
 
   const { item = {} } = response;
+
+  //handle the null item -> idk why this happening may be i am getting ratelimited.
+  if (item === null) {
+    res.status(200).json({
+      player: "Not listening.",
+      is_playing: false,
+    });
+  }
+
   const {
     album = {},
     artists = {},
