@@ -13,6 +13,9 @@ module.exports = {
         accent: {
           900: "#47FFDD",
         },
+        accentdark: {
+          900: "#2db59c",
+        }
       },
       transitionProperty :{
         'width': 'width',
