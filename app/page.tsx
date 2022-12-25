@@ -4,13 +4,17 @@ import Link from "next/link";
 import { IconFactory } from "../components/Svgs/iconFactory";
 
 const Home = async () => {
-  console.log(GET_PLAYING_NOW_EP);
-  const response = await axios.get(`${GET_PLAYING_NOW_EP}`);
-  const { data = {} } = response;
-  const { player = "offline", name = "", trackUrl = "#", artists = [] } = data;
+  const responseObj = await fetch(`${GET_PLAYING_NOW_EP}`, {
+    next : {
+      revalidate: 60
+    }
+  });
+  const response = await responseObj.json();
+  console.log("Fetch: ",response);
+  //const { data = {} } = response;
+  const { player = "offline", name = "", trackUrl = "#", artists = [] } = response;
   const currentlyPlayingText = name ? name : player;
   const iconName = name ? "music" : "mute";
-  console.log("artists:", artists);
   return (
     <div className="flex justify-center items-center w-screen h-screen">
       <div>
