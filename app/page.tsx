@@ -1,16 +1,14 @@
 import { GET_PLAYING_NOW_EP } from "../constants";
-import axios from "axios";
 import Link from "next/link";
 import { IconFactory } from "../components/Svgs/iconFactory";
 
 const Home = async () => {
   const responseObj = await fetch(`${GET_PLAYING_NOW_EP}`, {
     next : {
-      revalidate: 60
+      revalidate: 0
     }
   });
   const response = await responseObj.json();
-  console.log("Fetch: ",response);
   //const { data = {} } = response;
   const { player = "offline", name = "", trackUrl = "#", artists = [] } = response;
   const currentlyPlayingText = name ? name : player;
