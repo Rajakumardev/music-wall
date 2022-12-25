@@ -5,7 +5,7 @@ import { IconFactory } from "../components/Svgs/iconFactory";
 const Home = async () => {
   const responseObj = await fetch(`${GET_PLAYING_NOW_EP}`, {
     next : {
-      revalidate: 60
+      revalidate: 0
     }
   });
   const response = await responseObj.json();
